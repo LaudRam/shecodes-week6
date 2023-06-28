@@ -1,0 +1,117 @@
+body {
+  font-family: "Roboto", sans-serif;
+  color: #535860 !important;
+  background-image: url("../images/clouds.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+h1 {
+  font-family: "Roboto", sans-serif;
+  font-size: 30px !important;
+  text-transform: capitalize;
+}
+hr {
+  margin: 0px !important;
+}
+.weather-container {
+  padding: 15px 20px;
+  max-width: 720px;
+  margin: 0 auto;
+}
+.weather-app {
+  margin: 10px 20px;
+  border: 1px solid rgb(191, 176, 191);
+  padding: 10px 15px;
+  border-radius: 15px;
+  box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, 0.16);
+  background: #fff;
+}
+.search-bar {
+  padding: 15px 60px 15px 10px;
+}
+.search-text,
+.search-button,
+#current-button {
+  padding: 5px 15px;
+  border-radius: 39px;
+  border: 1px solid rgb(165, 163, 163);
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16);
+}
+.search-text {
+  width: 100%;
+}
+.search-button {
+  background: #0e5185;
+  color: #fff;
+}
+.search-button:hover {
+  background: #0e5185a7;
+}
+#current-button {
+  background: #8b307f;
+  color: #fff;
+}
+#current-button:hover {
+  background: #8b307fa9;
+}
+.both-buttons {
+  margin: 0 auto;
+}
+.current {
+  padding: 10px;
+  max-width: 100%;
+}
+.current-time {
+  font-size: 18px;
+}
+.current-temp {
+  font-size: 48px;
+  text-align: center;
+}
+.temp-units {
+  font-size: 20px;
+  position: relative;
+  top: -20px;
+  left: -5px;
+  text-decoration: none;
+}
+#celcius,
+#fahrenheit {
+  text-decoration: none;
+  pointer-events: none;
+}
+#celcius:hover,
+#fahrenheit:hover {
+  text-decoration: underline;
+}
+#fahrenheit {
+  color: #535860;
+}
+#icon {
+  margin: 0 auto;
+  padding: 5px;
+}
+.current-icon {
+  font-size: 80px;
+}
+.conditions {
+  margin: 15px 0 15px 0;
+}
+.forecast-container {
+  margin: 10px !important;
+  padding: 10px;
+}
+.forecast {
+  text-align: center;
+}
+.icon-forecast {
+  font-size: 30px;
+}
+.low-temp {
+  font-weight: normal;
+}
+#by-line {
+  text-align: center;
+  font-family: "PT Mono", monospace;
+  color: #000;
+}

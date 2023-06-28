@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather app</title>
+    <link rel="stylesheet" href="style/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=PT+Mono&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://kit.fontawesome.com/ce55c9f63a.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="weather-container">
+        <div class="weather-app">
+          <div class="search-bar">
+            <form id="search-form">
+              <div class="row">
+                <div class="col-md-8">
+                  <input
+                    type="text"
+                    placeholder="Enter a city"
+                    class="search-text"
+                    autocomplete="off"
+                    autofocus="on"
+                  />
+                </div>
+                <div class="col-md-2 both-buttons">
+                  <input type="submit" value="Search" class="search-button" />
+                </div>
+                <div class="col-md-2 both-buttons">
+                  <button id="current-button">Current</button>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="row">
+            <div class="card-group current">
+              <div class="col-md-5">
+                <div class="card border-0">
+                  <div class="card-body" id="city-name">
+                    <h1 class="card-title">Bushbuckridge</h1>
+                    <header class="card-text current-time">
+                      13:00, Friday
+                    </header>
+                    <span class="current-temp">
+                      <span id="temp-value">13</span>
+                      <span class="temp-units">
+                        <a href="#" id="celcius">°C</a>
+                        |
+                        <a href="#" id="fahrenheit">°F</a>
+                      </span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="card border-0">
+                  <div class="card-body" id="icon">
+                    <p class="card-text current-icon">⛅</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card border-0">
+                  <div class="card-body conditions">
+                    <div id="description"></div>
+                    <!-- <div id="rain">Precipitation: 2%</div> -->
+                    <div id="wind"></div>
+                    <div id="humidity"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr />
+          <div class="row forecast-container">
+            <div class="col-md forecast">
+              <div class="day">Sat</div>
+              <div class="icon-forecast">☀️</div>
+              <strong> 25° <span class="low-temp">8°</span> </strong>
+            </div>
+            <div class="col-md forecast">
+              <div class="day">Sun</div>
+              <div class="icon-forecast">☁️</div>
+              <strong> 27° <span class="low-temp">8°</span> </strong>
+            </div>
+            <div class="col-md forecast">
+              <div class="day">Mon</div>
+              <div class="icon-forecast">⛅</div>
+              <strong> 28° <span class="low-temp">9°</span> </strong>
+            </div>
+            <div class="col-md forecast">
+              <div class="day">Tue</div>
+              <div class="icon-forecast">🌦️</div>
+              <strong> 24° <span class="low-temp">10°</span> </strong>
+            </div>
+            <div class="col-md forecast">
+              <div class="day">Wed</div>
+              <div class="icon-forecast">🌧️</div>
+              <strong> 23° <span class="low-temp">9°</span> </strong>
+            </div>
+          </div>
+        </div>
+        <footer id="by-line">Coded by: Laudicia Ramasenya</footer>
+      </div>
+    </div>
+    <script src="style/app.js"></script>
+  </body>
+</html>
