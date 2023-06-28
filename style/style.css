@@ -114,4 +114,11 @@ hr {
   text-align: center;
   font-family: "PT Mono", monospace;
   color: #000;
+  background: #ffffffb8 !important;
+  margin: 20px 20% 20px 20%;
+  border-radius: 15px;
+  padding: 4px 10px;
+}
+#open-source {
+  text-decoration: none;
 }
