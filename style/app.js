@@ -4,6 +4,9 @@ function currentTime() {
 }
 let now = new Date();
 let hour = now.getHours();
+if (hour <= 9) {
+  hour = `0${hour}`;
+}
 let minute = now.getMinutes();
 if (minute <= 9) {
   minute = `0${minute}`;
@@ -69,7 +72,7 @@ function currentConditions(response) {
   humidityElement.innerHTML = `Humidity: ${humidity}%`;
 
   let icon = response.data.condition.icon_url;
-  document.querySelector("img").src = icon;
+  document.querySelector(".current-icon").src = icon;
 }
 
 function search(city) {
@@ -77,6 +80,7 @@ function search(city) {
   let URL = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
   axios.get(URL).then(currentTemp);
   axios.get(URL).then(currentConditions);
+  getForecast(city);
 }
 search("Bushbuckridge");
 
@@ -93,7 +97,6 @@ function showPosition(position) {
   let longitude = position.coords.longitude;
   let apiKey = "0f09bat43dccc526f81281do161a0bf2";
   let URL = `https://api.shecodes.io/weather/v1/current?lon=${longitude}&lat=${latitude}&key=${apiKey}&units=metric`;
-
   axios.get(URL).then(currentTemp);
   axios.get(URL).then(currentConditions);
 }
@@ -101,34 +104,62 @@ function showPosition(position) {
 function getPosition(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(showPosition);
+  navigator.geolocation.getCurrentPosition(forecastGPS);
 }
 let currentButton = document.querySelector("#current-button");
 currentButton.addEventListener("click", getPosition);
 
-function displayForecast(index) {
-  console.log(index);
+function displayForecast(response) {
+  let dailyForecast = response.data.daily;
   let forecastElement = document.querySelector(".forecast");
 
   let forecastHTML = `<div class="row">`;
-  let days = [1, 2, 3, 4, 5];
 
-  days.forEach(function (day) {
-    forecastHTML += `
+  dailyForecast.forEach(function (forecastDay, index) {
+    if (index < 5) {
+      let day = formatDate(forecastDay.time);
+      let maxTemperature = Math.round(forecastDay.temperature.maximum);
+      let minTemperature = Math.round(forecastDay.temperature.minimum);
+      let iconForecast = forecastDay.condition.icon_url;
+      forecastHTML += `
     <div class="col-md forecast">
       <div class="day">${day}</div>
       <div class="icon-forecast">
         <img
-          src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/broken-clouds-day.png"
+          src="${iconForecast}"
           alt="weather_icon"
           id="forecast-icon"
         />
       </div>
-      <strong> 25° <span class="low-temp">8°</span> </strong>
+      <strong> ${maxTemperature}° <span class="low-temp">${minTemperature}°</span> </strong>
     </div>
   `;
+    }
   });
-  
+
   forecastHTML += `</div>`;
   forecastElement.innerHTML = forecastHTML;
 }
-displayForecast();
+
+function formatDate(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[day];
+}
+
+function getForecast(city) {
+  // let city = "paris";
+  let apiKey = "0f09bat43dccc526f81281do161a0bf2";
+  let URL = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
+  axios.get(URL).then(displayForecast);
+}
+
+function forecastGPS(position) {
+  let latitude = position.coords.latitude;
+  let longitude = position.coords.longitude;
+  let apiKey = "0f09bat43dccc526f81281do161a0bf2";
+  let URL = `https://api.shecodes.io/weather/v1/forecast?lon=${longitude}&lat=${latitude}&key=${apiKey}&units=metric`;
+  axios.get(URL).then(displayForecast);
+}
