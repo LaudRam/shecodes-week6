@@ -95,7 +95,6 @@ hr {
 .temp-units .active:hover {
   text-decoration: none;
 }
-
 #icon {
   margin: 0 auto;
   padding: 5px;
@@ -123,6 +122,9 @@ ul {
 }
 .icon-forecast {
   font-size: 30px;
+}
+#forecast-icon {
+  width: 60px;
 }
 .low-temp {
   font-weight: normal;

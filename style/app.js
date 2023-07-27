@@ -104,3 +104,31 @@ function getPosition(event) {
 }
 let currentButton = document.querySelector("#current-button");
 currentButton.addEventListener("click", getPosition);
+
+function displayForecast(index) {
+  console.log(index);
+  let forecastElement = document.querySelector(".forecast");
+
+  let forecastHTML = `<div class="row">`;
+  let days = [1, 2, 3, 4, 5];
+
+  days.forEach(function (day) {
+    forecastHTML += `
+    <div class="col-md forecast">
+      <div class="day">${day}</div>
+      <div class="icon-forecast">
+        <img
+          src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/broken-clouds-day.png"
+          alt="weather_icon"
+          id="forecast-icon"
+        />
+      </div>
+      <strong> 25° <span class="low-temp">8°</span> </strong>
+    </div>
+  `;
+  });
+  
+  forecastHTML += `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+displayForecast();
