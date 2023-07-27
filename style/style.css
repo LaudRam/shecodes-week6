@@ -24,7 +24,7 @@ hr {
   padding: 10px 15px;
   border-radius: 15px;
   box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, 0.16);
-  background: #fff;
+  /* background: #fff; */
 }
 .search-bar {
   padding: 15px 60px 15px 10px;
@@ -39,20 +39,22 @@ hr {
 }
 .search-text {
   width: 100%;
+  outline: #8b307fba solid 1px;
+  background-color: #ffffff73;
 }
 .search-button {
   background: #0e5185;
   color: #fff;
 }
 .search-button:hover {
-  background: #0e5185a7;
+  opacity: 0.6;
 }
 #current-button {
   background: #8b307f;
   color: #fff;
 }
 #current-button:hover {
-  background: #8b307fa9;
+  opacity: 0.6;
 }
 .both-buttons {
   margin: 0 auto;
@@ -93,6 +95,7 @@ hr {
 .temp-units .active:hover {
   text-decoration: none;
 }
+
 #icon {
   margin: 0 auto;
   padding: 5px;
@@ -128,11 +131,22 @@ ul {
   text-align: center;
   font-family: "PT Mono", monospace;
   color: #000;
-  background: #ffffffb8 !important;
   margin: 20px 20% 20px 20%;
   border-radius: 15px;
   padding: 4px 10px;
 }
 #open-source {
   text-decoration: none;
+}
+img {
+  width: 140px;
+}
+.weather-app,
+#by-line {
+  background: #ffffffae !important;
+}
+#city-name-box,
+#icon-box,
+#conditions-box {
+  background-color: transparent;
 }
