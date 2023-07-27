@@ -53,14 +53,12 @@
               <div class="col-md-5">
                 <div class="card border-0">
                   <div class="card-body" id="city-name">
-                    <h1 class="card-title">Bushbuckridge</h1>
-                    <header class="card-text current-time">
-                      13:00, Friday
-                    </header>
+                    <h1 class="card-title"></h1>
+                    <header class="card-text current-time"></header>
                     <span class="current-temp">
-                      <span id="temp-value">13</span>
+                      <strong id="temp-value"></strong>
                       <span class="temp-units">
-                        <a href="#" id="celcius">°C</a>
+                        <a href="#" id="celcius" class="active">°C</a>
                         |
                         <a href="#" id="fahrenheit">°F</a>
                       </span>
@@ -71,17 +69,22 @@
               <div class="col-md-3">
                 <div class="card border-0">
                   <div class="card-body" id="icon">
-                    <p class="card-text current-icon">⛅</p>
+                    <img
+                      src=""
+                      alt="weather_icon"
+                      class="card-text current-icon"
+                    />
                   </div>
                 </div>
               </div>
               <div class="col-md-4">
                 <div class="card border-0">
                   <div class="card-body conditions">
-                    <div id="description"></div>
-                    <!-- <div id="rain">Precipitation: 2%</div> -->
-                    <div id="wind"></div>
-                    <div id="humidity"></div>
+                    <ul>
+                      <li id="description"></li>
+                      <li id="wind"></li>
+                      <li id="humidity"></li>
+                    </ul>
                   </div>
                 </div>
               </div>
@@ -116,7 +119,15 @@
             </div>
           </div>
         </div>
-        <footer id="by-line"><a href="https://github.com/LaudRam/weatherApp.git" target="_blank" id="open-source">Open-source code</a> by: Laudicia Ramasenya</footer>
+        <footer id="by-line">
+          <a
+            href="https://github.com/LaudRam/weatherApp.git"
+            target="_blank"
+            id="open-source"
+            >Open-source code</a
+          >
+          by Laudicia Ramasenya
+        </footer>
       </div>
     </div>
     <script src="style/app.js"></script>

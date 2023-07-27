@@ -66,36 +66,50 @@ hr {
 }
 .current-temp {
   font-size: 48px;
-  text-align: center;
+}
+#temp-value {
+  font-size: 58px;
+  font-weight: 500;
 }
 .temp-units {
   font-size: 20px;
   position: relative;
-  top: -20px;
-  left: -5px;
+  top: -26px;
+  left: -10px;
   text-decoration: none;
 }
 #celcius,
 #fahrenheit {
   text-decoration: none;
-  pointer-events: none;
 }
 #celcius:hover,
 #fahrenheit:hover {
-  text-decoration: underline;
+  text-decoration: none;
 }
-#fahrenheit {
+.temp-units .active {
   color: #535860;
+  cursor: default;
+}
+.temp-units .active:hover {
+  text-decoration: none;
 }
 #icon {
   margin: 0 auto;
   padding: 5px;
 }
 .current-icon {
-  font-size: 80px;
+  font-size: 12px;
 }
 .conditions {
   margin: 15px 0 15px 0;
+}
+ul {
+  list-style-type: none;
+  padding-left: 0 !important;
+  margin-bottom: 0 !important;
+}
+#description::first-letter {
+  text-transform: capitalize;
 }
 .forecast-container {
   margin: 10px !important;
