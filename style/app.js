@@ -33,30 +33,6 @@ function currentTemp(response) {
   let celciusTemperature = response.data.temperature.current;
   let tempValue = document.querySelector("#temp-value");
   tempValue.innerHTML = Math.round(celciusTemperature);
-
-  function tempCelcius(event) {
-    event.preventDefault();
-    let temperature = document.querySelector("#temp-value");
-
-    celciusLink.classList.add("active");
-    fahrenheitLink.classList.remove("active");
-    temperature.innerHTML = Math.round(celciusTemperature);
-  }
-  //let celciusTemperature = null;
-  let celciusLink = document.querySelector("#celcius");
-  celciusLink.addEventListener("click", tempCelcius);
-
-  function tempFahrenheit(event) {
-    event.preventDefault();
-    let temperature = document.querySelector("#temp-value");
-
-    celciusLink.classList.remove("active");
-    fahrenheitLink.classList.add("active");
-    let fahrenheitTemperature = (celciusTemperature * 9) / 5 + 32;
-    temperature.innerHTML = Math.round(fahrenheitTemperature);
-  }
-  let fahrenheitLink = document.querySelector("#fahrenheit");
-  fahrenheitLink.addEventListener("click", tempFahrenheit);
 }
 
 function currentConditions(response) {
@@ -121,18 +97,19 @@ function displayForecast(response) {
       let maxTemperature = Math.round(forecastDay.temperature.maximum);
       let minTemperature = Math.round(forecastDay.temperature.minimum);
       let iconForecast = forecastDay.condition.icon_url;
+
       forecastHTML += `
-    <div class="col-md forecast">
-      <div class="day">${day}</div>
-      <div class="icon-forecast">
-        <img
-          src="${iconForecast}"
-          alt="weather_icon"
-          id="forecast-icon"
-        />
-      </div>
-      <strong> ${maxTemperature}° <span class="low-temp">${minTemperature}°</span> </strong>
-    </div>
+        <div class="col-md forecast">
+          <div class="day">${day}</div>
+          <div class="icon-forecast">
+            <img
+              src="${iconForecast}"
+              alt="weather_icon"
+              id="forecast-icon"
+            />
+          </div>
+          <strong> ${maxTemperature}° <span class="low-temp">${minTemperature}°</span> </strong>
+        </div>
   `;
     }
   });
@@ -150,7 +127,6 @@ function formatDate(timestamp) {
 }
 
 function getForecast(city) {
-  // let city = "paris";
   let apiKey = "0f09bat43dccc526f81281do161a0bf2";
   let URL = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
   axios.get(URL).then(displayForecast);

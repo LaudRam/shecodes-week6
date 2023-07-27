@@ -59,6 +59,9 @@ hr {
 .both-buttons {
   margin: 0 auto;
 }
+#city-name-box {
+  text-align: center;
+}
 .current {
   padding: 10px;
   max-width: 100%;
@@ -80,15 +83,7 @@ hr {
   left: -10px;
   text-decoration: none;
 }
-#celcius,
-#fahrenheit {
-  text-decoration: none;
-}
-#celcius:hover,
-#fahrenheit:hover {
-  text-decoration: none;
-}
-.temp-units .active {
+.temp-units {
   color: #535860;
   cursor: default;
 }
